@@ -2,27 +2,30 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>SunnyScope 门户</title>
   <style>
     * {
       box-sizing: border-box;
     }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #000000; /* 字体黑色 */
+    }
+    body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      background-color: #ffffff;
     }
     .card-block {
       width: 80%;
-      max-width: 400px;
-      margin: 20px 0;
+      max-width: 360px;
+      margin: 10px 0;
       text-align: center;
     }
     .card-button {
@@ -30,9 +33,10 @@
       background-color: #ffffff;
       border: none;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px 0;
+      padding: 16px 0;
       border-radius: 12px;
-      font-size: 22px;
+      font-size: 20px;
+      color: #000;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -41,11 +45,11 @@
       transform: translateY(-2px);
     }
     .qr-container {
-      margin-top: 10px;
+      margin-top: 6px;
       display: none;
     }
     .qr-container img {
-      width: 160px;
+      width: 120px;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -54,34 +58,39 @@
 </head>
 <body>
 
-  <!-- 第一组按钮+二维码 -->
+  <!-- 通用版本 -->
   <div class="card-block">
-    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/software/#/download?productId=378247363271708672&type=1';">通用版本</button>
+    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/software/#/download?productId=378247363271708672&type=1';">
+      通用版本
+    </button>
     <div class="qr-container" id="qr1">
       <img id="qr-img1" src="SMES-通用.png" alt="互动学生端二维码">
     </div>
   </div>
 
-  <!-- 第二组按钮+二维码 -->
+  <!-- 兰大版本 -->
   <div class="card-block">
-    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/pan/share/722986645796786176?filePath=-1';">兰大版本</button>
+    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/pan/share/722986645796786176?filePath=-1';">
+      兰大版本
+    </button>
     <div class="qr-container" id="qr2">
       <img id="qr-img2" src="SMES-兰大.png" alt="SunnyScope二维码">
     </div>
   </div>
-    <!-- 第三组按钮+二维码 -->
+
+  <!-- 宁医大版本 -->
   <div class="card-block">
     <button class="card-button" onclick="location.href='';">宁医大版本</button>
     <div class="qr-container" id="qr3">
-      <img id="qr-img3" src="qr3.png" alt="SunnyScope二维码">
+      <img id="qr-img3" src="" alt="SunnyScope二维码">
     </div>
   </div>
 
   <script>
-    // 自动检测每个二维码图片是否存在，存在就显示
     function handleQR(imgId, containerId) {
       const img = document.getElementById(imgId);
       const container = document.getElementById(containerId);
+      if (!img || !container) return;
       img.onload = () => {
         if (img.naturalWidth > 0) {
           container.style.display = 'block';
@@ -94,7 +103,7 @@
 
     handleQR("qr-img1", "qr1");
     handleQR("qr-img2", "qr2");
-	handleQR("qr-img3", "qr3");
+    handleQR("qr-img3", "qr3");
   </script>
 
 </body>
