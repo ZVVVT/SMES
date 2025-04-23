@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>SunnyScope 门户</title>
   <style>
     * {
@@ -11,23 +11,36 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-      height: 100vh;
-      background-color: #ffffff;
-      color: #000000; /* 字体黑色 */
+      background-color: #fff;
+      color: #000;
     }
-    body {
+
+    .wrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 40px 0;
+      height: 100vh;
     }
+
+    .content {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
     .card-block {
       width: 80%;
       max-width: 360px;
-      margin: 10px 0;
       text-align: center;
     }
+
     .card-button {
       width: 100%;
       background-color: #ffffff;
@@ -40,14 +53,17 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     .card-button:hover {
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
+
     .qr-container {
       margin-top: 6px;
       display: none;
     }
+
     .qr-container img {
       width: 120px;
       height: auto;
@@ -57,32 +73,37 @@
   </style>
 </head>
 <body>
+  <div class="wrapper">
+    <div class="content">
 
-  <!-- 通用版本 -->
-  <div class="card-block">
-    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/software/#/download?productId=378247363271708672&type=1';">
-      通用版本
-    </button>
-    <div class="qr-container" id="qr1">
-      <img id="qr-img1" src="SMES-通用.png" alt="互动学生端二维码">
-    </div>
-  </div>
+      <!-- 通用版本 -->
+      <div class="card-block">
+        <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/software/#/download?productId=378247363271708672&type=1';">
+          通用版本
+        </button>
+        <div class="qr-container" id="qr1">
+          <img id="qr-img1" src="SMES-通用.png" alt="互动学生端二维码">
+        </div>
+      </div>
 
-  <!-- 兰大版本 -->
-  <div class="card-block">
-    <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/pan/share/722986645796786176?filePath=-1';">
-      兰大版本
-    </button>
-    <div class="qr-container" id="qr2">
-      <img id="qr-img2" src="SMES-兰大.png" alt="SunnyScope二维码">
-    </div>
-  </div>
+      <!-- 兰大版本 -->
+      <div class="card-block">
+        <button class="card-button" onclick="location.href='https://yqznpdp.sunnyoptical.cn:22004/pan/share/722986645796786176?filePath=-1';">
+          兰大版本
+        </button>
+        <div class="qr-container" id="qr2">
+          <img id="qr-img2" src="SMES-兰大.png" alt="SunnyScope二维码">
+        </div>
+      </div>
 
-  <!-- 宁医大版本 -->
-  <div class="card-block">
-    <button class="card-button" onclick="location.href='';">宁医大版本</button>
-    <div class="qr-container" id="qr3">
-      <img id="qr-img3" src="" alt="SunnyScope二维码">
+      <!-- 宁医大版本 -->
+      <div class="card-block">
+        <button class="card-button" onclick="location.href='';">宁医大版本</button>
+        <div class="qr-container" id="qr3">
+          <img id="qr-img3" src="" alt="SunnyScope二维码">
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -105,6 +126,5 @@
     handleQR("qr-img2", "qr2");
     handleQR("qr-img3", "qr3");
   </script>
-
 </body>
 </html>
